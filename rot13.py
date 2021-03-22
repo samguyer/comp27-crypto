@@ -10,6 +10,9 @@ def encrypt(plaintext):
 
     return result
 
+
+# --- Test it out here
+
 t = input("Enter plaintext: ")
 c = encrypt(t)
 print("Cypher text: {}".format(c))

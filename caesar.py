@@ -10,6 +10,9 @@ def encrypt(plaintext, shift):
 
     return result
 
+
+# --- Test it out here
+
 t = input("Enter plaintext: ")
 s = int(input("Enter shift: "))
 c = encrypt(t, s)

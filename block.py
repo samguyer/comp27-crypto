@@ -51,10 +51,12 @@ def subst(block, shift):
 
     return result
 
+# --- Test it out here
 
 pt = input("Enter plaintext: ")
 key = int(input("Enter key:"))
 ct = encrypt(pt, key)
-de = decrypt(ct, key)
 print("Encrypted: {}".format(ct))
+
+de = decrypt(ct, key)
 print("Decrypted: {}".format(de))

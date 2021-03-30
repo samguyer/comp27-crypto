@@ -25,7 +25,8 @@ def time_factor(n):
     print(f)
 
 # -- Choose a number and factor it
-n1 = 3600
+#    On my computer, this number takes about a second to factor
+n1 = 8557399 * 12791869
 time_factor(n1)
 
 

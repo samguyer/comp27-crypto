@@ -8,7 +8,7 @@ q = int(input("Enter prime q: "))
 n = p * q
 
 # -- Compute lambda(n), the Carmichael function
-#    Since p and q are prime, lamba(n) = lcm(p-1, q-1)
+#    Since p and q are prime, lambda(n) = lcm(p-1, q-1)
 #    lcm(p-1, q-1) = (p-1)*(q-1) / gcd(p-1, q-1)
 g = math.gcd(p-1,q-1)
 lam_n = ((p-1) * (q-1)) // g
@@ -16,9 +16,12 @@ lam_n = ((p-1) * (q-1)) // g
 # -- Choose a small value, less than lam_n, that is
 #    relatively prime to lam_n (that is, the only
 #    prime factor they share is 1)
-e = 5
-if lam_n % e == 0:
-    print("BAD e value {}".format(e))
+
+# Hopefully, one of these values works!
+e_values = [5,7,11,13,3,17]
+for e in e_values:
+    if e < lam_n and lam_n % e == 1:
+        break
 
 # -- Now compute a value d, such that d * e = 1 mod lam_n
 for d in range(1,lam_n):
@@ -26,9 +29,10 @@ for d in range(1,lam_n):
         break
 
 print("p = {}  q = {}  n = {}  lam_n = {}  e = {}  d = {}".format(p, q, n, lam_n, e, d))
+print("Public key: ({}, {})".format(e, n))
+print("Private key: {}".format(d))
 
-
-c = int(input("Enter 1 to encrupt, 2 to decrypt: "))
+c = int(input("Enter 1 to encrypt, 2 to decrypt: "))
 if c == 1:
 
     # -- Get a secret message to encrypt:
@@ -42,6 +46,8 @@ if c == 1:
 
     # Encrypt: Compute m^e mod n
     ct = pow(v, e, n)
+    ct0 = pow(v, e)
+    print("Before mod: {}".format(ct0))
     print("Cypher value: {}".format(ct))
 
 if c == 2:

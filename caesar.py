@@ -13,11 +13,9 @@ def encrypt(plaintext, shift):
 
 # --- Test it out here
 
-#t = input("Enter plaintext: ")
-#s = int(input("Enter shift: "))
-#c = encrypt(t, s)
-#print("Cypher text: {}".format(c))
+t = input("Enter plaintext: ")
+s = int(input("Enter shift: "))
+c = encrypt(t, s)
+print("Cypher text: {}".format(c))
 
-ct = "nkmdibdnczmz"
-for i in range(1,26):
-    print("{} {}".format(i, encrypt(ct, i)))
+
